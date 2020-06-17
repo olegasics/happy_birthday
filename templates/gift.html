@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>С Днем Рождения, Аля</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+ <nav>
+  <ul>
+    <li>
+      <a href="/gift">Подарок</a>
+    </li>
+    <li>
+      <a href="#">О тебе</a>
+    </li>
+    <li>
+      <a href="#">О нас</a>
+    </li>
+    <li>
+      <a href="#">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+ <div id="content" >
+    <div id="quest">
+       <h1> <span id="quest_1">Подарок свой просто так ты естественно не получишь. Для этого тебе надо пройти серию квестов
+        За каждый правильный ответ ты будешь получать 1 символ от пароля для получения подарка. Всего будет 7 мини-квестов
+       </span></h1>
+
+        <form hidden id="quest_2">
+            <h1><span>Молодец, ты очень внимательная. Поэтому с тобой всегда интересно познавать что-то новое.
+            Держи первый символ пароля - j
+                Второе задание: тебе надо в своем шкафу найди записку со вторым символом пароля</span></h1>
+            <input id='quest_2_text' type="text" placeholder="Символ">
+            <button id="quest_2_btn" type="submit">Отправить</button>
+        </form>
+
+        <form hidden id='quest_3'>
+            <span>Третье задание на твое любимое. Память</span>
+            <input id='quest_3_text' type="text" placeholder="Ответ">
+            <button id="quest_3_btn" type="submit">Ответить</button>
+        </form>
+
+
+        <form hidden id="quest_5">
+            <span>Теперь открой дверь в подъезд и нажми на кнопку после того, как откроешь</span>
+            <button type="submit">Открыла</button>
+
+        </form>
+        <form hidden id="/close_door">
+            <span>А теперь закрой и нажми на кнопку</span>
+            <button type="submit">Закрыла</button>
+        </form>
+
+        <form hidden id="/quest_6">
+            <span>Осталось немного</span>
+        </form>
+
+        <form hidden id="/quest_7">
+            <span>Последний квест.</span>
+        </form>
+
+
+
+        <form hidden id="/finish">
+            <span>Супер. Теперь возьми пароль и посмотри на клавиатуре какое это русское слово.
+                Затем снова открой дверь в подъезд</span>
+        </form>
+
+
+
+    </div>
+
+ </div>
+
+<h1 id="author">Create for Alya</h1>
+
+<script src="/static/js/gift.js"></script>
+
+
+</body>
+</html>
