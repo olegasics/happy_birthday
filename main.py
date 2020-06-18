@@ -16,3 +16,12 @@ def quest():
 
     return 'wq'
 
+
+@app.route('/aboutwe')
+def aboutwe():
+    return render_template('aboutwe.html')
+
+
+@app.route('/aboutyou')
+def aboutyou():
+    return render_template('aboutyou.html')
