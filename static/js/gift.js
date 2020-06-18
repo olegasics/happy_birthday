@@ -8,7 +8,25 @@ leftImg.src = ("/static/img/gift.png");
 
 leftImg.style = "position:fixed;left:500px;top:200px;width:64;height:64;z-index:100"
 var quest_1_text = $('#quest_1')
-var quest_2_text = $('#quest_2')
+var quest_2_form = $('$quest_2')
+var quest_3_form = $('$quest_3')
+var quest_4_form = $('$quest_4')
+var quest_5_form = $('$quest_5')
+var quest_6_form = $('$quest_6')
+var quest_7_form = $('$quest_7')
+var quest_2_text = $('#quest_2_text')
+var quest_3_text = $('#quest_3_text')
+var quest_4_text = $('#quest_4_text')
+var quest_5_text = $('#quest_5_text')
+var quest_6_text = $('#quest_6_text')
+var quest_7_text = $('#quest_7_text')
+var quest_2_btn = $('#quest_2_btn')
+var quest_3_btn = $('#quest_3_btn')
+var quest_4_btn = $('#quest_4_btn')
+var quest_5_btn = $('#quest_5_btn')
+var quest_6_btn = $('#quest_6_btn')
+var quest_7_btn = $('#quest_7_btn')
+var quest_2_text_1 = $('#quest_text_1')
 
 
 leftImg.onclick = function() {
@@ -19,20 +37,131 @@ leftImg.onclick = function() {
         },
         success: function(response) {
         quest_1_text.prop('hidden', true)
-            quest_2_text.prop('hidden', false)
+            quest_2.prop('hidden', false)
             leftImg.prop('hidden', true) // найти как скрыть картинку
+
         },
 
         error: function(response){
             console.log(response);
 
         }
-
-
-
     });
 
 };
+
+quest_2_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_2",
+        data: {
+
+            'answer': quest_2_text.val()
+        },
+        success: function(response) {
+            quest_2.prop('hidden', true)
+            quest_3.prop('hidden', false)
+
+        },
+
+        error: function(response){
+            quest_2_text_1.html('Неверный ответ. Или ошиблась случайно, или нашла не ту бумажку :)
+            Попробуй еще')
+        }
+    });
+};
+
+quest_3_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_3",
+        data: {
+            'answer': quest_3_text.val()
+        },
+        success: function(response) {
+            quest_3.prop('hidden', true)
+            quest_4.prop('hidden', false)
+        },
+
+        error: function(response){
+             quest_2_text_1.html('Неверный ответ. Попробуй еще. Или ошиблась, или слово в неверном формате')
+        }
+    });
+};
+
+quest_4_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_4",
+        data: {
+            'answer': quest_4_text.val()
+        },
+        success: function(response) {
+            quest_4.prop('hidden', true)
+            quest_5.prop('hidden', false)
+        },
+
+        error: function(response){
+            console.log(response);
+        }
+    });
+};
+
+quest_5_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_5",
+        data: {
+            'answer': quest_5_text.val()
+        },
+        success: function(response) {
+            quest_5.prop('hidden', true)
+            quest_6.prop('hidden', false)
+        },
+
+        error: function(response){
+            console.log(response);
+        }
+    });
+};
+
+quest_6_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_6",
+        data: {
+            'answer': quest_6_text.val()
+        },
+        success: function(response) {
+            quest_6.prop('hidden', true)
+            quest_7.prop('hidden', false)
+        },
+
+        error: function(response){
+            console.log(response);
+        }
+    });
+};
+
+quest_7_btn.onclick = function() {
+    $.ajax({
+        type: "GET",
+        url: "/quest_7",
+        data: {
+            'answer': quest_7_text.val()
+        },
+        success: function(response) {
+            quest_7.prop('hidden', true)
+            finish.prop('hidden', false)
+        },
+
+        error: function(response){
+            console.log(response);
+        }
+    });
+};
+
+
 document.querySelector('body').appendChild(leftImg);
 
 
