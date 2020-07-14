@@ -1,11 +1,9 @@
-import telebot
-
 from flask import Flask, render_template, redirect, url_for, request, make_response
 
-bot = telebot.TeleBot('1237667281:AAEm_wbrbUXro2QCXujhMZDBUNJS-9Yf6sY')
 app = Flask(__name__)
 
-@app.route('/test')
+
+@app.route('/open')
 def index():
     return render_template('happy_birthday.html')
 
@@ -16,7 +14,6 @@ def gift():
 
 @app.route('/quest')
 def quest():
-
     return 'wq'
 
 
@@ -30,49 +27,36 @@ def aboutyou():
     return render_template('aboutyou.html')
 
 
-@app.route('/quest_2')
-def quest_2():
-    answer = request.form.get('answer')
-    if answer.lower().strip() == 'f':
+@app.route('/quest_2/<symbol>')
+def quest_2(symbol):
+    if symbol.lower().strip() == 'ответ':
         return 'yes'
     else:
         return make_response(404)
 
 
-@app.route('/quest_3')
-def quest_3():
-    answer = request.form.get('answer')
-    if answer.lower().strip() == 'колючий':
+@app.route('/quest_3/<answer>')
+def quest_3(answer):
+    if answer.lower().strip() == 'ответ':
         return 'yes'
-    elif answer.lower().strip() in 'колючий':
+    elif answer.lower().strip() in 'ответ':
         return 'yes'
     else:
         return make_response(404)
 
 
-
-@app.route('/quest')
-def quest():
-
-    return 'wq'
-
-@app.route('/quest')
-def quest():
-
-    return 'wq'
-
-bot.polling(none_stop=True, interval=0)
-
-
-@bot.message_handler(content_types=['text'])
-def get_text_messages(message):
-    if message.text == "/start":
-        bot.send_message(message.from_user.id, "Приветики. Добро пожаловать в 4 квест. Тут ждет тебя 3 ребуса")
-    while message.text != '':
-        bot.send_message(message.from_user.id, "Верно")
+@app.route('/quest_4/<answer>')
+def quest_4(answer):
+    if answer.lower().strip() == 'ответ':
+        return 'yes'
     else:
-        bot.send_message(message.from_user.id, "Не верно. Подумай еще")
+        return make_response(404)
 
-    bot.send_message(message.from_user.id, 'Супер. 5-я буква в пароле - v')
-    bot.send_message(message.from_user.id, 'Еще я создал стикеры, похожие на тебя. Можешь добавить себе, если хочешь. Ссылка ниже')
-    bot.send_message(message.from_user.id, 'https://t.me/addstickers/s412037449_268317_by_stickerfacebot')
+
+@app.route('/quest_5/<answer>')
+def quest_5(answer):
+    if answer.lower().strip() == 'ответ':
+        return 'yes'
+
+    else:
+        return make_response(404)

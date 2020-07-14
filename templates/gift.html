@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <link href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='js/salut.css') }}" rel="stylesheet">
 
 </head>
 
@@ -25,75 +26,59 @@
       <a href="/aboutwe">О нас</a>
     </li>
     <li>
-      <a href="#">Contact</a>
+        <a href="/open">Открытка</a>
     </li>
   </ul>
 </nav>
 
  <div id="content" >
-    <div id="quest">
+    <h1 id="quest">
        <h1> <span id="quest_1">Подарок свой просто так ты естественно не получишь. Для этого тебе надо пройти серию квестов
-        За каждый правильный ответ ты будешь получать 1 символ от пароля для получения подарка. Всего будет 7 мини-квестов.
+        За каждый правильный ответ ты будешь получать 1 символ от пароля для получения подарка. Всего будет 5 мини-квестов.
            Итак, первый. Тебе нужно нужно из всех подарочков выбрать 1 и под ним скрывается первый символ.
        </span></h1>
 
-        <form hidden id="quest_2">
-            <h1><span>Молодец, ты очень внимательная. Поэтому с тобой всегда интересно познавать что-то новое.
-            Держи первый символ пароля - k</span>
-               <span id="quest_text_1">Второе задание: тебе надо в своем шкафу найди записку со вторым символом пароля. Введи его в поле ниже. И записывай себе куда-нибудь
-            пароль :) </span> </h1>
-            <input id='quest_2_text' type="text" placeholder="2-й символ">
-            <button id="quest_2_btn" type="submit">Отправить</button>
-        </form>
+        <div hidden id="quest_2">
+            <h1><span>Верно.</span>
+                <span id="quest_text_1">Второй вопрос</span> </h1>
+            <input id='quest_2_text' type="text" placeholder="Название компании">
+            <button onclick="clickQuest2Btn()">Отправить</button>
+        </div>
 
-        <form hidden id='quest_3'>
-            <span>Третье задание на твое любимое. Память
-            Что ты первое сказала после нашего первого поцелуя? Ответ из 1 слова</span>
+        <div hidden id='quest_3'>
+            <span><h1>Верно.
+                <p>Третий вопрос</p></h1></span>
             <input id='quest_3_text' type="text" placeholder="Ответ">
-            <button id="quest_3_btn" type="submit">Отправить</button>
-            <span>Не верно. Осталось {{ required }} попытки</span>
-        </form>
+            <button id="quest_3_btn" onclick="clickQuest3Btn()">Отправить</button>
+        </div>
 
-
-        <form hidden id="quest_4">
-            <span>Да. Тогда меня это отправило в ступор, но сейчас я понимаю какой это был милый момент
-            Четвертое задание. Выйди в подъезд, там тебя ждет следующий символ после разгадки квеста</span>
+        <div hidden id="quest_4">
+            <span id="quest_4_text_1"><h1>Верно.
+                <p><span id="quest_4_text_2">Четвертый вопрос</span></p></h1></span>
             <input id='quest_4_text' type="text" placeholder="4-й символ">
-            <button id="quest_4_btn" type="submit">Отправить</button>
+            <button id="quest_4_btn" onclick="clickQuest4Btn()">Отправить</button>
+        </div>
 
-        </form>
-        <form hidden id="/close_door">
-            <span>А теперь закрой и нажми на кнопку</span>
-            <button type="submit">Закрыла</button>
-        </form>
-
-        <form hidden id="/quest_5">
-            <span>Осталось немного.</span>
-            <span>В телеграмме добавь бота @happy_birthday_alya_bot и напиши в чат /start</span>
+        <div hidden id="quest_5">
+            <h1><span>Последнее задание.</span>
+        <span>В телеграмме добавь бота @happy_birthday_alya_bot, там будут дальнейшие инструкции</span></h1>
             <input id='quest_5_text' type="text" placeholder="5-й символ">
-            <button id="quest_5_btn" type="submit">Отправить</button>
-        </form>
+            <button id="quest_5_btn" onclick="clickQuest5Btn()">Отправить</button>
+        </div>
 
-        <form hidden id="/quest_7">
-            <span>Последний квест.</span>
-        </form>
+        <div hidden id="finish" style="background:#fffff;">
+            <h1><span>Супер. Теперь возьми пароль и посмотри на клавиатуре какое это русское слово.
+                </span></h1>
+             <script src="/static/js/salut.js"></script>
 
-
-
-        <form hidden id="finish">
-            <span>Супер. Теперь возьми пароль и посмотри на клавиатуре какое это русское слово.
-                Затем снова выйди в подъезд</span>
-        </form>
-
-
-
+        </div>
     </div>
 
  </div>
+ <script src="/static/js/gift.js"></script>
 
 <h1 id="author">Create for Alya</h1>
 
-<script src="/static/js/gift.js"></script>
 
 
 </body>
